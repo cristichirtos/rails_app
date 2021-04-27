@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   root 'products#index'
-  get 'main_page/home'
+  get '/dashboard', to: 'dashboard#index'
   resources :products
 end
