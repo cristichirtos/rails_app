@@ -1,38 +1,38 @@
 * {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-	font-family: "Arial", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
 }
 
 .header-wrapper {
-	height: 400px;
-	width: 100%;
-	color: white;
-	background-image: url(/restaurant.jpg);
-	background-size: cover;
+  height: 400px;
+  width: 100%;
+  color: white;
+  background-image: url(/restaurant.jpg);
+  background-size: cover;
 
-	.logo {
-		height: 60px;
-		width: 72px;
-		position: relative;
-		top: 10px;
-		left: 260px;
-	}
+  .logo {
+    height: 60px;
+    width: 72px;
+    position: relative;
+    top: 10px;
+    left: 260px;
+  }
 
-	.logo-text {
-		position: relative;
-		top: -40px;
-		width: 50px;
-		left: 340px;
-	}
+  .logo-text {
+    position: relative;
+    top: -40px;
+    width: 50px;
+    left: 340px;
+  }
 
-	.navigation {
-		text-align: right;
-		align-content: center;
+  .navigation {
+    text-align: right;
+    align-content: center;
 
-		.nav-list {
-			li {
+    .nav-list {
+      li {
         position: relative;
         top: -60px;
         right: 150px;
@@ -41,37 +41,37 @@
         margin: 5px;
         display: inline;
 
-				&:not(:last-child) {
-					&:after {
-						content: " \00b7";
-						color: orange;
-						margin-left: 5px;
-						font-weight: bold;
-					}
-				}
-			}
-		}
-	}
-	#title {
-		margin-bottom: 50px;
-		font-size: 45px;
-	}
+        &:not(:last-child) {
+          &:after {
+            content: " \00b7";
+            color: orange;
+            margin-left: 5px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+  #title {
+    margin-bottom: 50px;
+    font-size: 45px;
+  }
 
-	.text {
-		text-align: center;
-		margin: 10px;
-		font-weight: 600;
-	}
+  .text {
+    text-align: center;
+    margin: 10px;
+    font-weight: 600;
+  }
 }
 
 main {
-	.options-bar {
-		width: 100%;
-		height: 50px;
-		background-color: #F0F0F2;
-		display: grid;
-		grid-template-columns: repeat(30, 1fr);
-		align-items: center;
+  .options-bar {
+    width: 100%;
+    height: 50px;
+    background-color: #F0F0F2;
+    display: grid;
+    grid-template-columns: repeat(30, 1fr);
+    align-items: center;
 
     #category-option {
       grid-column: 4 / 7;
@@ -145,76 +145,76 @@ main {
         }
       }
     }
-	}
+  }
 }
 
 #dashboard {
-	margin-left: 150px;
-	margin-top: 50px;
-	margin-bottom: 20px;
-	font-size: 18px;
-	text-transform: uppercase;
+  margin-left: 150px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  text-transform: uppercase;
 }
 
 .dashboardForm {
-	display: none;
-	margin-left: 150px;
-	margin-bottom: 30px;
+  display: none;
+  margin-left: 150px;
+  margin-bottom: 30px;
 }
 
 .grid-container {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .container {
-	display: grid;
-	grid-template: repeat(2, 1fr) / repeat(4, 1fr);
-	grid-auto-flow: row;
-	align-content: center;
-	justify-content: center;
-	justify-items: center;
-	gap: 5px;
-	align-items: center;
-	margin-top: 20px;
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(4, 1fr);
+  grid-auto-flow: row;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  gap: 5px;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .dish {
-	height: 330px;
-	width: 375px;
-	transition: all .2s ease-in-out;
-	border: 1px solid #e6e6e6;
-	text-align: center;
+  height: 330px;
+  width: 375px;
+  transition: all .2s ease-in-out;
+  border: 1px solid #e6e6e6;
+  text-align: center;
 
-	.food-image {
-		height: 250px;
-		width: 375px;
-	}
+  .food-image {
+    height: 250px;
+    width: 375px;
+  }
 
-	.info {
-		p {
-			margin: 5px auto;
-		}
-		background-color: white;
-		height: 80px;
-		width: 375px;
-		.dish-name {
-			font-weight: 900;
-			font-size: 18px;
-		}
-		.description {
-			color: grey;
-			font-size: 12px;
-			font-weight: 500;
-		}
-		.price {
-			font-size: 14px;
-			color: orange;
-			font-weight: 600;
-		}
-	}
+  .info {
+    p {
+      margin: 5px auto;
+    }
+    background-color: white;
+    height: 80px;
+    width: 375px;
+    .dish-name {
+      font-weight: 900;
+      font-size: 18px;
+    }
+    .description {
+      color: grey;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .price {
+      font-size: 14px;
+      color: orange;
+      font-weight: 600;
+    }
+  }
   
-	&:hover {
-		transform: scale(1.1);
-	}
+  &:hover {
+    transform: scale(1.1);
+  }
 }
