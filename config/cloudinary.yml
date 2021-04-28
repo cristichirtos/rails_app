@@ -1,0 +1,6 @@
+production:
+  cloud_name: dzztsjsbi
+  api_key: '977581299758797'
+  api_secret: gOVNZPhnOvpgbBDUISI3yC-FxMc
+  enhance_image_tag: true
+  static_file_support: true

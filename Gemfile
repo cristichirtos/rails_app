@@ -28,6 +28,7 @@ group :development do
   gem 'web-console',        '4.1.0'
   gem 'rack-mini-profiler', '2.3.1'
   gem 'listen',             '3.4.1'
+  gem 'cloudinary',         '1.20.0'
   gem 'spring',             '2.1.1'
 end
 
@@ -46,5 +47,6 @@ end
 group :production do
   gem 'pg',         '1.2.3'
   gem 'aws-sdk-s3', '1.87.0', require: false
+  gem 'cloudinary', '1.20.0', require: true
 end
 
