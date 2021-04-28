@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.image.attach(params[:product][:image])
+    @product.image.attach(product_params[:image])
     
     respond_to do |format|
       @product.save ? format.html { redirect_to @product, notice: 'Product added successfully!' }
