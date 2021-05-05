@@ -9,8 +9,10 @@
       %li= link_to 'HOME', root_path 
       %li= link_to 'ABOUT', '#' 
       %li= link_to 'SERVICE', '#' 
-      %li= link_to 'BLOG', '#'
       - if logged_in?
+        %li
+          = link_to 'CART', '#'
+          %label.badge.badge-pill= cart_count
         %li= link_to 'LOG OUT', logout_path, method: :delete 
       - else 
         %li= link_to 'LOG IN', login_path

@@ -19,7 +19,15 @@ module SessionsHelper
     @current_user = nil
   end
 
-  def add_to_cartt(product)
-    session[:cart][product.id] += 1
+  def add_product_to_cart_cookie(product_id)
+    session[:cart][product_id].nil? ? session[:cart][product_id] = 1 : session[:cart][product_id] += 1
+  end
+
+  def cart_count
+    session[:cart].values.inject(0) { |sum, value| sum += value }
+  end
+
+  def get_cart 
+    session[:cart]
   end
 end

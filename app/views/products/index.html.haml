@@ -43,4 +43,4 @@
             %p.dish-name= product.title 
             %p.description= product.description 
             %p.price= "$#{product.price}"
-            = link_to 'Add to cart', add_to_cart_path, product: 'yes'
+            = link_to 'Add to cart', add_to_cart_path(product.id), method: :post
