@@ -1,0 +1,19 @@
+%header.header-wrapper
+  %img.logo{src: '/logo.png'}
+  %p.logo-text
+    Eureka
+    %br
+    Caffe 
+  %nav.navigation
+    %ul.nav-list
+      %li= link_to 'HOME', root_path 
+      %li= link_to 'ABOUT', '#' 
+      %li= link_to 'SERVICE', '#' 
+      %li= link_to 'BLOG', '#'
+      - if logged_in?
+        %li= link_to 'LOG OUT', logout_path, method: :delete 
+      - else 
+        %li= link_to 'LOG IN', login_path
+  %h1#title.text Ordering food 
+  %p.text You can order food in many ways. There are many algorithms out there that you can use to order food.
+  %p.text The only optimal ones, however, are quicksort and heapsort.
