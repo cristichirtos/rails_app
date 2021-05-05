@@ -11,7 +11,7 @@
       %li= link_to 'SERVICE', '#' 
       - if logged_in?
         %li
-          = link_to 'CART', '#'
+          = link_to 'CART', cart_path
           %label.badge.badge-pill= cart_count
         %li= link_to 'LOG OUT', logout_path, method: :delete 
       - else 
