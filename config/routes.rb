@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root 'application#hello'
+  root 'products#index'
+  get '/dashboard', to: 'dashboard#index'
+  resources :products
 end
