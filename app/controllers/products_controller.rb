@@ -5,11 +5,9 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
   
   def new
     @product = Product.new
@@ -34,6 +32,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
+
     respond_to { |format| format.html { redirect_to dashboard_path, notice: 'Product deleted!' } }
   end
 
