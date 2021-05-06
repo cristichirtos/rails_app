@@ -193,7 +193,7 @@
 }
 
 .dish {
-  height: 330px;
+  height: 350px;
   width: 375px;
   transition: all .2s ease-in-out;
   border: 1px solid #e6e6e6;
@@ -205,12 +205,12 @@
   }
 
   .info {
+    background-color: white;
+    height: 100px;
+    width: 375px;
     p {
       margin: 5px auto;
     }
-    background-color: white;
-    height: 80px;
-    width: 375px;
     .dish-name {
       font-weight: 900;
       font-size: 18px;
