@@ -1,23 +1,19 @@
-%p#notice= notice
-%h1 Products
-%table
-  %thead
-    %tr
-      %th Title
-      %th Description
-      %th Price
-      %th Image
-      %th{:colspan => "3"}
-  %tbody
-    - @products.each do |product|
-      %tr
-        %td= product.title
-        %td= product.description
-        %td= product.price
-        %td= image_tag product.image, width: '50px', height: '50px'
-        %td= link_to 'Show', product
-        %td= link_to 'Edit', edit_product_path(product)
-        %td= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
-%br
-= link_to 'New Product', new_product_path
-= link_to 'Back', root_path
+%h1.page-title Products
+
+.row
+  .col-md-5.col-md-offset-3
+    = link_to 'New Product', new_product_path
+    = link_to 'Back', root_path
+    %ul.list-group
+      - @products.each do |product|
+        %a.book-path{href: product_path(product), class: 'list-group-item list-group-item-action d-flex justify-content-between align-items-center'}
+          .flex-custom
+            .flex-column
+              = product.title 
+              %p
+                %small
+                  = "Description: #{product.description}"
+                  %br
+                  = "Price: #{product.price}"
+            .image-parent 
+              = image_tag product.image, class: 'img-fluid', alt: product.title

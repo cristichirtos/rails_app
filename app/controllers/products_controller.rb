@@ -16,24 +16,28 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.image.attach(product_params[:image])
-    
-    respond_to do |format|
-      @product.save ? format.html { redirect_to @product, notice: 'Product added successfully!' }
-                    : format.html { render :new }
+
+    if @product.save
+      flash[:success] = 'Product added successfully!'
+      redirect_to @product 
+    else 
+      render 'new'
     end
   end
 
   def update
-    respond_to do |format|
-      @product.update(product_params) ? format.html { redirect_to @product, notice: 'Product updated successfully!' }
-                                      : format.html { render :edit }
+    if @product.update(product_params)
+      flash[:success] = 'Product updated successfully!'
+      redirect_to @product 
+    else
+      render 'edit'
     end
   end
 
   def destroy
     @product.destroy
-
-    respond_to { |format| format.html { redirect_to dashboard_path, notice: 'Product deleted!' } }
+    flash[:success] = 'Product deleted!'
+    redirect_to dashboard_path
   end
 
   private
