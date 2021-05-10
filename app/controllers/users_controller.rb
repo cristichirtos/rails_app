@@ -9,7 +9,9 @@ class UsersController < ApplicationController
 
     if @user.save 
       log_in @user 
-      flash[:succes] = 'Welcome to Eureka Caffe!'
+      remember @user
+      session[:session_token] = @user.session_token
+      flash[:success] = 'Welcome to Eureka Caffe!'
       redirect_to root_path
     else
       render 'new'
