@@ -7,7 +7,7 @@ class CartsController < ApplicationController
 
   def add_to_cart
     add_product_to_cart(params[:product_id])
-    redirect_to root_path
+    redirect_to(root_path)
   end
 
   private 

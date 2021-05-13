@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
 
     if @product.save
       flash[:success] = 'Product added successfully!'
-      redirect_to @product 
+      redirect_to(@product) 
     else 
       render 'new'
     end
@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
   def update
     if @product.update(product_params)
       flash[:success] = 'Product updated successfully!'
-      redirect_to @product 
+      redirect_to(@product) 
     else
       render 'edit'
     end
@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     flash[:success] = 'Product deleted!'
-    redirect_to dashboard_path
+    redirect_to(dashboard_path)
   end
 
   private

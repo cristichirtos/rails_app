@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       remember @user
       session[:session_token] = @user.session_token
       flash[:success] = 'Welcome to Eureka Caffe!'
-      redirect_to root_path
+      redirect_to(root_path)
     else
       render 'new'
     end

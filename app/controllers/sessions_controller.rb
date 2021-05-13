@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       log_in @user
       session_param[:remember_me] == '1' ? remember(@user) : forget(@user)
       session[:session_token] = @user.session_token
-      redirect_to root_path
+      redirect_to(root_path)
     else
       flash.now[:danger] = 'Invalid email or password.'
       render 'new'
@@ -18,6 +18,6 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    redirect_to root_path
+    redirect_to(root_path)
   end
 end
