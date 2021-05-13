@@ -41,7 +41,7 @@ module SessionsHelper
     @current_user = nil
   end
 
-  def add_product_to_cart_cookie(product_id)
+  def add_product_to_cart(product_id)
     session[:cart][product_id].nil? ? session[:cart][product_id] = 1 : session[:cart][product_id] += 1
   end
 
