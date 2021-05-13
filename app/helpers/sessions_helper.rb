@@ -3,7 +3,7 @@ module SessionsHelper
   def log_in(user)
     reset_session
     session[:user_id] = user.id
-    session[:cart] = Hash.new(0)
+    session[:cart] = {}
   end
 
   def current_user
@@ -11,7 +11,7 @@ module SessionsHelper
   end
 
   def logged_in?
-    !current_user.nil?
+    current_user.present?
   end
 
   def log_out
