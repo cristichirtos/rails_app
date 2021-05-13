@@ -67,6 +67,7 @@
       }
     }
   }
+
   #title {
     margin-bottom: 50px;
     font-size: 45px;
@@ -90,27 +91,34 @@
   #category-option {
     grid-column: 4 / 7;
   }
+
   #sorting-option {
     grid-column: 7 / 9;
   }
+
   #vegetarian-option {
     grid-column: 10 / 15;
   }
+
   #price-option {
     grid-column: 20 / 21;
     letter-spacing: 0.2em;
   }
+
   #min-price-option {
     grid-column: 22 / 23;
   }
+
   #price-range-bar {
     grid-column: 23 / 26;
     color: orange;
   }
+
   #max-price-option {
     justify-self: right;
     grid-column: 26 / 27;
   }
+
   .price-option {
     color: grey;
   }
@@ -208,18 +216,22 @@
     background-color: white;
     height: 100px;
     width: 375px;
+
     p {
       margin: 5px auto;
     }
+
     .dish-name {
       font-weight: 900;
       font-size: 18px;
     }
+
     .description {
       color: grey;
       font-size: 12px;
       font-weight: 500;
     }
+
     .price {
       font-size: 14px;
       color: orange;
@@ -246,6 +258,7 @@
 .checkbox {
   margin-top: -10px;
   margin-bottom: 10px;
+  
   span {
     margin-left: 20px;
     font-weight: normal;
