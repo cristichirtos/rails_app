@@ -1,0 +1,34 @@
+.options-bar
+  #category-option.dropdown
+    %p.drop-text 
+      CATEGORY
+      %span.custom-caret ⌄
+    .dropdown-content 
+      %p PASTA 
+      %p PIZZA 
+      %p SOUP 
+      %p SALAD 
+
+  #sorting-option.dropdown
+    %p.drop-text
+      SORTING
+      %span.custom-caret ⌄
+    .dropdown-content 
+      %p A-Z
+      %p Z-A
+      %p Price: L-H 
+      %p Price: H-L
+
+  #vegetarian-option.dropdown
+    %p.drop-text
+      VEGETARIAN
+      %span.custom-caret ⌄
+    .dropdown-content 
+      %p VEGETARIAN
+      %p VEGAN
+      %p NON-VEGETARIAN
+  
+  %p#price-option PRICE 
+  %p#min-price-option.price-option $15
+  %input#price-range-bar{type: 'range', name: 'price', min: '15', max: '100'}
+  %p#max-price-option.price-option $100

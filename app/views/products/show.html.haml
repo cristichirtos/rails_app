@@ -10,7 +10,9 @@
   = @product.price 
 %p
   %strong Image: 
-  = image_tag @product.image
+  = image_tag @product.image, class: 'img-fluid'
 
-= link_to 'Edit', edit_product_path(@product)
-= link_to 'Back', dashboard_path
+= link_to 'Edit ', edit_product_path(@product)
+= link_to 'Delete ', product_path(@product), method: :delete, data: { confirm: 'Are you sure?' }
+%br
+= link_to 'Back ', dashboard_path

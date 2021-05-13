@@ -1,8 +1,18 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "Arial", sans-serif;
+}
+
+.page-title {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 .header-wrapper {
@@ -41,6 +51,11 @@
         margin: 5px;
         display: inline;
 
+        a {
+          color: white;
+          font-size: 16px;
+        }
+
         &:not(:last-child) {
           &:after {
             content: " \00b7";
@@ -64,85 +79,83 @@
   }
 }
 
-main {
-  .options-bar {
-    width: 100%;
-    height: 50px;
-    background-color: #F0F0F2;
-    display: grid;
-    grid-template-columns: repeat(30, 1fr);
-    align-items: center;
+.options-bar {
+  width: 100%;
+  height: 50px;
+  background-color: #F0F0F2;
+  display: grid;
+  grid-template-columns: repeat(30, 1fr);
+  align-items: center;
 
-    #category-option {
-      grid-column: 4 / 7;
-    }
-    #sorting-option {
-      grid-column: 7 / 9;
-    }
-    #vegetarian-option {
-      grid-column: 10 / 15;
-    }
-    #price-option {
-      grid-column: 20 / 21;
-      letter-spacing: 0.2em;
-    }
-    #min-price-option {
-      grid-column: 22 / 23;
-    }
-    #price-range-bar {
-      grid-column: 23 / 26;
-      color: orange;
-    }
-    #max-price-option {
-      justify-self: right;
-      grid-column: 26 / 27;
-    }
-    .price-option {
-      color: grey;
+  #category-option {
+    grid-column: 4 / 7;
+  }
+  #sorting-option {
+    grid-column: 7 / 9;
+  }
+  #vegetarian-option {
+    grid-column: 10 / 15;
+  }
+  #price-option {
+    grid-column: 20 / 21;
+    letter-spacing: 0.2em;
+  }
+  #min-price-option {
+    grid-column: 22 / 23;
+  }
+  #price-range-bar {
+    grid-column: 23 / 26;
+    color: orange;
+  }
+  #max-price-option {
+    justify-self: right;
+    grid-column: 26 / 27;
+  }
+  .price-option {
+    color: grey;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+
+    .drop-text {
+      letter-spacing: 0.15em;
     }
 
-    .dropdown {
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+
+      p {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+        text-align: center;
+        display: block;
+
+        &:hover {
+          background-color: #ddd;
+        }
+      }
+    }
+
+    .custom-caret {
       position: relative;
-      display: inline-block;
+      top: -2px;
+      width: 20px;
+      color: orange;
+      font-size: 18px;
+    }
 
-      .drop-text {
-        letter-spacing: 0.15em;
-      }
-
+    &:hover {
       .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f1f1f1;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-
-        p {
-          color: black;
-          padding: 12px 16px;
-          text-decoration: none;
-          transition: all 0.2s ease-in-out;
-          text-align: center;
-          display: block;
-
-          &:hover {
-            background-color: #ddd;
-          }
-        }
-      }
-
-      .caret {
-        position: relative;
-        top: -2px;
-        width: 20px;
-        color: orange;
-        font-size: 18px;
-      }
-
-      &:hover {
-        .dropdown-content {
-          display: block;
-        }
+        display: block;
       }
     }
   }
@@ -167,7 +180,7 @@ main {
   justify-content: center;
 }
 
-.container {
+.custom-container {
   display: grid;
   grid-template: repeat(2, 1fr) / repeat(4, 1fr);
   grid-auto-flow: row;
@@ -180,7 +193,7 @@ main {
 }
 
 .dish {
-  height: 330px;
+  height: 350px;
   width: 375px;
   transition: all .2s ease-in-out;
   border: 1px solid #e6e6e6;
@@ -192,12 +205,12 @@ main {
   }
 
   .info {
+    background-color: white;
+    height: 100px;
+    width: 375px;
     p {
       margin: 5px auto;
     }
-    background-color: white;
-    height: 80px;
-    width: 375px;
     .dish-name {
       font-weight: 900;
       font-size: 18px;
@@ -217,4 +230,15 @@ main {
   &:hover {
     transform: scale(1.1);
   }
+}
+
+.flex-custom {
+	width: 100%;
+	display: inline-flex;
+	justify-content: space-between;
+}
+
+.img-fluid {
+  width: 150px;
+  height: 100px;
 }
