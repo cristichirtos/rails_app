@@ -22,8 +22,9 @@ gem 'bootsnap',                   '1.7.2'
 gem 'cloudinary',                 '1.20.0'
 
 group :development, :test do
-  gem 'sqlite3', '1.4.2'
-  gem 'byebug',  '11.1.3', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'sqlite3',     '1.4.2'
+  gem 'byebug',      '11.1.3', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '5.0.1'
 end
 
 group :development do

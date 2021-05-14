@@ -8,9 +8,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save 
+      reset_session
       log_in @user 
-      flash[:succes] = 'Welcome to Eureka Caffe!'
-      redirect_to root_path
+      remember @user
+      session[:session_token] = @user.session_token
+      flash[:success] = 'Welcome to Eureka Caffe!'
+      redirect_to(root_path)
     else
       render 'new'
     end
