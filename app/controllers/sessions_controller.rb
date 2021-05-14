@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     session_param = params[:session]
     @user = User.find_by(email: session_param[:email].downcase)
     if @user&.authenticate(session_param[:password])
+      reset_session
       log_in @user
       session_param[:remember_me] == '1' ? remember(@user) : forget(@user)
       session[:session_token] = @user.session_token

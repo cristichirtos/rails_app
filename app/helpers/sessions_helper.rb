@@ -1,7 +1,6 @@
 module SessionsHelper
 
   def log_in(user)
-    reset_session
     session[:user_id] = user.id
     session[:cart] = {}
   end
