@@ -7,7 +7,7 @@ class CartsController < ApplicationController
 
   def add_to_cart
     add_product_to_cart(params[:product_id])
-    redirect_to(root_path)
+    redirect_to(root_url)
   end
 
   private 
@@ -15,7 +15,7 @@ class CartsController < ApplicationController
     def check_logged_in_user
       unless logged_in?
         flash[:danger] = 'Please log in.'
-        redirect_to login_path
+        redirect_to(login_url)
       end
     end
 end

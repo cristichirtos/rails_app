@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if @user&.authenticate(session_param[:password])
       if @user.activated?
         reset_session
-        log_in @user
+        log_in(@user)
         session_param[:remember_me] == '1' ? remember(@user) : forget(@user)
         session[:session_token] = @user.session_token
         redirect_to(root_path)
