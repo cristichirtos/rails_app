@@ -29,6 +29,8 @@ Rails.application.configure do
 
   config.active_support.disallowed_deprecation_warnings = []
 
+  config.force_ssl = true
+
   config.log_formatter = ::Logger::Formatter.new
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
