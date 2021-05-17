@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :check_logged_in_user
 
   def index
     @products = Product.all
@@ -48,5 +49,12 @@ class ProductsController < ApplicationController
 
     def product_params
       params.require(:product).permit(:title, :description, :price, :image)
+    end
+
+    def check_logged_in_user
+      unless logged_in?
+        flash[:danger] = 'Please log in.'
+        redirect_to login_path
+      end
     end
 end

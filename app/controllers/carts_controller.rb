@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :check_logged_in_user, only: :add_to_cart
+  before_action :check_logged_in_user
 
   def index
     @cart = get_cart
