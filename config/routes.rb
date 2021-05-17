@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get    '/cart',                     to: 'carts#index'
   resources :products
   resources :users
+  resources :account_activations, only: [:edit]
 end

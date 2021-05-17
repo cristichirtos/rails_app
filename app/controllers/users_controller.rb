@@ -8,12 +8,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save 
-      reset_session
-      log_in @user 
-      remember @user
-      session[:session_token] = @user.session_token
-      flash[:success] = 'Welcome to Eureka Caffe!'
-      redirect_to(root_path)
+      @user.send_activation_email
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to login_path
     else
       render 'new'
     end
