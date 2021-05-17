@@ -7,10 +7,12 @@ class PasswordResetsController < ApplicationController
 
   def create 
     @user = User.find_by(email: params[:password_reset][:email].downcase)
+
     if @user 
       @user.create_reset_digest
       @user.send_password_reset_email
       flash[:info] = 'Email sent with password reset instructions'
+
       redirect_to(login_url)
     else
       flash.now[:danger] = 'Email address not found'
@@ -19,6 +21,7 @@ class PasswordResetsController < ApplicationController
 
   rescue Net::SMTPUnknownError
     flash[:danger] = 'Your email is not on the Mailgun Authorized Recipients list. Please contact me to add your email.'
+
     redirect_to(login_url)
   end
 
@@ -32,6 +35,7 @@ class PasswordResetsController < ApplicationController
       log_in(@user) 
       session[:session_token] = @user.session_token
       flash[:success] = 'Password has been reset'
+
       redirect_to(root_url)
     else
       render 'edit'
@@ -55,6 +59,7 @@ class PasswordResetsController < ApplicationController
     def check_expiration 
       if @user.password_reset_expired?
         flash[:danger] = 'Password reset has expired.'
+        
         redirect_to(new_password_reset_url)
       end
     end

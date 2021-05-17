@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
 
     if @product.save
       flash[:success] = 'Product added successfully!'
+
       redirect_to(@product) 
     else 
       render 'new'
@@ -29,6 +30,7 @@ class ProductsController < ApplicationController
   def update
     if @product.update(product_params)
       flash[:success] = 'Product updated successfully!'
+
       redirect_to(@product) 
     else
       render 'edit'
@@ -38,6 +40,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     flash[:success] = 'Product deleted!'
+
     redirect_to(dashboard_path)
   end
 
@@ -54,6 +57,7 @@ class ProductsController < ApplicationController
     def check_logged_in_user
       unless logged_in?
         flash[:danger] = 'Please log in.'
+        
         redirect_to(login_url)
       end
     end
