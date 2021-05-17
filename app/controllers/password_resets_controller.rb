@@ -16,6 +16,10 @@ class PasswordResetsController < ApplicationController
       flash.now[:danger] = 'Email address not found'
       render 'new'
     end
+
+  rescue Net::SMTPUnknownError
+    flash[:danger] = 'Your email is not on the Mailgun Authorized Recipients list. Please contact me to add your email.'
+    redirect_to login_path
   end
 
   def edit; end
