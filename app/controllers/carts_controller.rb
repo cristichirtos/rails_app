@@ -1,4 +1,4 @@
-class CartsController < ApplicationController
+class CartsController < BaseController
   before_action :check_logged_in_user
 
   def index
@@ -10,14 +10,4 @@ class CartsController < ApplicationController
 
     redirect_to(root_url)
   end
-
-  private 
-    
-    def check_logged_in_user
-      unless logged_in?
-        flash[:danger] = 'Please log in.'
-        
-        redirect_to(login_url)
-      end
-    end
 end
