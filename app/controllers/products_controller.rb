@@ -1,5 +1,6 @@
-class ProductsController < ApplicationController
+class ProductsController < BaseController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :check_logged_in_user
 
   def index
     @products = Product.all
@@ -19,6 +20,7 @@ class ProductsController < ApplicationController
 
     if @product.save
       flash[:success] = 'Product added successfully!'
+
       redirect_to(@product) 
     else 
       render 'new'
@@ -28,6 +30,7 @@ class ProductsController < ApplicationController
   def update
     if @product.update(product_params)
       flash[:success] = 'Product updated successfully!'
+
       redirect_to(@product) 
     else
       render 'edit'
@@ -37,6 +40,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     flash[:success] = 'Product deleted!'
+
     redirect_to(dashboard_path)
   end
 

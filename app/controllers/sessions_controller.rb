@@ -5,12 +5,20 @@ class SessionsController < ApplicationController
   def create
     session_param = params[:session]
     @user = User.find_by(email: session_param[:email].downcase)
+
     if @user&.authenticate(session_param[:password])
-      reset_session
-      log_in @user
-      session_param[:remember_me] == '1' ? remember(@user) : forget(@user)
-      session[:session_token] = @user.session_token
-      redirect_to(root_path)
+      if @user.activated?
+        reset_session
+        log_in(@user)
+        session_param[:remember_me] == '1' ? remember(@user) : forget(@user)
+        session[:session_token] = @user.session_token
+
+        redirect_to(root_url)
+      else 
+        flash[:warning] = 'Account not activated. Check your email for the activation link.'
+
+        redirect_to(login_url)
+      end
     else
       flash.now[:danger] = 'Invalid email or password.'
       render 'new'
@@ -19,6 +27,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    redirect_to(root_path)
+    
+    redirect_to(login_path)
   end
 end
