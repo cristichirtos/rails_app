@@ -1,0 +1,14 @@
+%h1.page-title Orders
+
+.row
+  .col-md-5.col-md-offset-3
+    = link_to 'Back', root_path
+    %ul.list-group
+      - @orders.each do |order|
+        %li.list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center
+          .flex-column
+            %p= "Order id: #{order.id}" 
+            %p= "Created at: #{order.created_at}"
+            %p= "User email: #{order.user.email}"
+            %p= "Handled: #{order.handled?}"
+          = link_to "Mark #{'un' if order.handled?}handled", toggle_handled_order_path(order), method: :patch, class: "btn btn-#{order.handled? ? 'danger' : 'primary'}"

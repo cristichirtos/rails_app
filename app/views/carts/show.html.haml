@@ -21,6 +21,6 @@
       = "Total price: $#{@cart.total_price}"
       %br
       = link_to 'Empty cart', cart_path, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }
-      = link_to 'Place order', '#', class: 'btn btn-primary'
+      = link_to 'Place order', orders_path, method: :post, class: 'btn btn-primary'
 - else 
   %h3= 'Cart is empty.'

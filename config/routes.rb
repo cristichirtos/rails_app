@@ -10,15 +10,19 @@ Rails.application.routes.draw do
   get    '/signup',                   to: 'users#new'
 
   get    '/dashboard',                to: 'dashboard#index'
+
+  resources :users
+  resources :account_activations, only: :edit
+  resources :password_resets,     only: %i[new create edit update]
+
+  resources :orders, only: %i[create index] do 
+    patch :toggle_handled, on: :member
+  end
   
   resources :products do 
     post :add_to_cart,      on: :member
     post :remove_from_cart, on: :member
   end
-  
-  resources :users
-  resources :account_activations, only: :edit
-  resources :password_resets,     only: %i[new create edit update]
 
   resource :cart,                 only: %i[show destroy]
 end
