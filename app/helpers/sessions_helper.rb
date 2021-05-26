@@ -2,7 +2,6 @@ module SessionsHelper
 
   def log_in(user)
     session[:user_id] = user.id
-    session[:cart] = {}
   end
 
   def remember(user)
@@ -41,15 +40,9 @@ module SessionsHelper
     @current_user = nil
   end
 
-  def add_product_to_cart(product_id)
-    session[:cart][product_id].nil? ? session[:cart][product_id] = 1 : session[:cart][product_id] += 1
-  end
-
   def cart_count
-    session[:cart].values.inject(0) { |sum, value| sum += value }
-  end
+    return 0 unless current_user&.cart.present?
 
-  def get_cart 
-    session[:cart]
+    current_user.cart.count
   end
 end

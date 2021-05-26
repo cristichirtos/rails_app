@@ -9,4 +9,8 @@ class BaseController < ApplicationController
         
       redirect_to(login_url)
     end
+
+    def retrieve_user_cart
+      @cart = current_user.cart 
+    end
 end
