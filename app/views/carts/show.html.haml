@@ -18,6 +18,7 @@
                 = link_to '-', remove_from_cart_product_path(product), method: :post, class: 'label label-pill label-primary'
               .image-parent 
                 = image_tag product.image, class: 'img-fluid', alt: product.title
+                
       = "Total price: $#{@cart.total_price}"
       %br
       = link_to 'Empty cart', cart_path, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }

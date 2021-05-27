@@ -7,6 +7,6 @@ class CartsController < BaseController
   def destroy 
     @cart.destroy
 
-    redirect_to(root_path)
+    redirect_to(root_url)
   end
 end

@@ -25,7 +25,7 @@ class OrdersController < BaseController
     order.save
     flash[:success] = "Order marked as #{'un' unless order.handled?}handled!"
 
-    redirect_to(orders_path)
+    redirect_to(orders_url)
   end
 
   private

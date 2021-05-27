@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: :edit
   resources :password_resets,     only: %i[new create edit update]
+  
+  resource :cart,                 only: %i[show destroy]
 
   resources :orders, only: %i[create index] do 
     patch :toggle_handled, on: :member
@@ -23,6 +25,4 @@ Rails.application.routes.draw do
     post :add_to_cart,      on: :member
     post :remove_from_cart, on: :member
   end
-
-  resource :cart,                 only: %i[show destroy]
 end
