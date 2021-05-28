@@ -1,7 +1,7 @@
 class OrdersController < BaseController
   before_action :check_logged_in_user
   before_action :retrieve_user_cart
-  before_action :check_admin_user, only: [:index, :toggle_handled]
+  before_action :check_admin_user, only: %i[index toggle_handled]
   
   def create
     order = current_user.orders.build
