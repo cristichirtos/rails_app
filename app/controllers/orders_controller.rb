@@ -6,7 +6,7 @@ class OrdersController < BaseController
   def create
     order = current_user.orders.build
 
-    @cart.product_carts.each do | product |
+    @cart.product_carts.each do |product|
       order.product_orders.build(product_id: product.product_id, quantity: product.quantity)
     end
     

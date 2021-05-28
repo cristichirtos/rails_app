@@ -41,8 +41,6 @@ module SessionsHelper
   end
 
   def cart_count
-    return 0 unless current_user&.cart.present?
-
-    current_user.cart.count
+    current_user&.cart&.count || 0
   end
 end
