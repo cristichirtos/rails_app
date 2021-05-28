@@ -10,11 +10,19 @@ Rails.application.routes.draw do
   get    '/signup',                   to: 'users#new'
 
   get    '/dashboard',                to: 'dashboard#index'
-  post   '/add_to_cart/:product_id',  to: 'carts#add_to_cart', as: 'add_to_cart'
-  get    '/cart',                     to: 'carts#index'
-  
-  resources :products
+
   resources :users
   resources :account_activations, only: :edit
   resources :password_resets,     only: %i[new create edit update]
+  
+  resource :cart,                 only: %i[show destroy]
+
+  resources :orders, only: %i[create index] do 
+    patch :toggle_handled, on: :member
+  end
+  
+  resources :products do 
+    post :add_to_cart,      on: :member
+    post :remove_from_cart, on: :member
+  end
 end

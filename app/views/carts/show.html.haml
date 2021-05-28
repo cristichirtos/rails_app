@@ -1,0 +1,27 @@
+%h1.page-title Shopping Cart
+
+- if @cart && @cart.products.any?
+  .row
+    .col-md-5.col-md-offset-3
+      %ul.list-group
+        - @cart.products.each do |product|
+          %li.list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center
+            .flex-custom
+              .flex-column
+                %strong
+                  = product.title
+                %br 
+                = "Price: $#{product.price}" 
+                %br 
+                = link_to '+', add_to_cart_product_path(product), method: :post, class: 'label label-pill label-primary'
+                = "Quantity: #{@cart.product_carts.find_by(product: product).quantity}"
+                = link_to '-', remove_from_cart_product_path(product), method: :post, class: 'label label-pill label-primary'
+              .image-parent 
+                = image_tag product.image, class: 'img-fluid', alt: product.title
+                
+      = "Total price: $#{@cart.total_price}"
+      %br
+      = link_to 'Empty cart', cart_path, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }
+      = link_to 'Place order', orders_path, method: :post, class: 'btn btn-primary'
+- else 
+  %h3= 'Cart is empty.'
