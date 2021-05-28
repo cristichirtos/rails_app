@@ -15,6 +15,7 @@ class Cart < ApplicationRecord
     return unless product_ids.include?(product_id)
 
     product_cart = product_carts.find_by(product_id: product_id)
+    
     if product_cart.quantity == 1
       product_cart.delete
     else
